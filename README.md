@@ -40,14 +40,14 @@ Subscription → Auto Service Creation → Worker Assignment
 
 ```mermaid
 flowchart TB
-    Customer[👤 Customer]
-    Admin[👨💼 Admin]
-    Worker[👷 Worker]
+    Customer["👤 Customer"]
+    Admin["👨💼 Admin"]
+    Worker["👷 Worker"]
     
-    Frontend[📱 Frontend<br/>(React + Vite)]
-    API[🔗 API Layer<br/>(Axios)]
-    Backend[🖥️ Backend<br/>(Node.js + Express)]
-    DB[(🗄️ MongoDB Atlas)]
+    Frontend["📱 Frontend (React + Vite)"]
+    API["🔗 API Layer (Axios)"]
+    Backend["🖥️ Backend (Node.js + Express)"]
+    DB[("🗄️ MongoDB Atlas")]
     
     Customer --> Frontend
     Admin --> Frontend
@@ -62,14 +62,14 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    A[👤 Customer<br/>Browse Packages<br/>Subscribe]
-    B[📦 Subscription Created]
-    C[⚙️ Auto-generate ServiceVisits<br/>Status: PENDING]
-    D[👨💼 Admin<br/>Assign Worker<br/>Status: ASSIGNED]
-    E[👷 Worker<br/>Complete Checklist<br/>Upload Photos<br/>Submit Work<br/>Status: COMPLETED_BY_WORKER]
-    F{👤 Customer<br/>Satisfied?}
-    G[✅ CONFIRMED_BY_CUSTOMER]
-    H[⚠️ REQUIRES_REVISIT]
+    A["👤 Customer: Browse & Subscribe"]
+    B["📦 Subscription Created"]
+    C["⚙️ Auto-generate ServiceVisits (PENDING)"]
+    D["👨💼 Admin: Assign Worker (ASSIGNED)"]
+    E["👷 Worker: Complete & Submit (COMPLETED_BY_WORKER)"]
+    F{"👤 Customer: Satisfied?"}
+    G["✅ CONFIRMED_BY_CUSTOMER"]
+    H["⚠️ REQUIRES_REVISIT"]
     
     A --> B
     B --> C
