@@ -1,0 +1,242 @@
+# 🌱 Mahaplants – Complete Plant Care Service Platform
+
+A full-stack **plant rental & maintenance management system** for offices, showrooms, and commercial spaces.  
+Businesses subscribe to plant packages and receive **automated maintenance services** with full lifecycle tracking.
+
+> 🚀 Built as a **production-style system** with real business workflows — not a basic CRUD project.
+
+---
+
+## 🚀 Live Application (Local)
+
+- **Frontend:** http://localhost:5173  
+- **Backend:** http://localhost:5001  
+- **Admin Panel:** http://localhost:5173/admin/services  
+
+---
+
+## ✨ Key Features
+
+### 🎯 Smart Subscription System
+- Package-based plant rentals (Basic / Standard / Premium)
+- Auto-generation of maintenance **ServiceVisits**
+- System-driven scheduling (no manual work)
+
+### 👥 Multi-Role Platform
+- **Customer:** Subscribe, track services, confirm work
+- **Admin:** View all services, assign workers
+- **Worker:** Complete assigned tasks, upload photos
+
+### 🔄 End-to-End Service Lifecycle
+
+```
+Subscription → Auto Service Creation → Worker Assignment
+→ Service Completion → Customer Confirmation / Revisit
+```
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TB
+    Customer[👤 Customer]
+    Admin[👨💼 Admin]
+    Worker[👷 Worker]
+    
+    Frontend[📱 Frontend<br/>(React + Vite)]
+    API[🔗 API Layer<br/>(Axios)]
+    Backend[🖥️ Backend<br/>(Node.js + Express)]
+    DB[(🗄️ MongoDB Atlas)]
+    
+    Customer --> Frontend
+    Admin --> Frontend
+    Worker --> Frontend
+    
+    Frontend --> API
+    API --> Backend
+    Backend --> DB
+```
+
+## 🔄 Service Workflow
+
+```mermaid
+flowchart TD
+    A[👤 Customer<br/>Browse Packages<br/>Subscribe]
+    B[📦 Subscription Created]
+    C[⚙️ Auto-generate ServiceVisits<br/>Status: PENDING]
+    D[👨💼 Admin<br/>Assign Worker<br/>Status: ASSIGNED]
+    E[👷 Worker<br/>Complete Checklist<br/>Upload Photos<br/>Submit Work<br/>Status: COMPLETED_BY_WORKER]
+    F{👤 Customer<br/>Satisfied?}
+    G[✅ CONFIRMED_BY_CUSTOMER]
+    H[⚠️ REQUIRES_REVISIT]
+    
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F -->|Yes| G
+    F -->|No| H
+    H --> D
+```
+
+## 📊 Status Flow
+
+```mermaid
+flowchart LR
+    P[PENDING] --> A[ASSIGNED]
+    A --> C[COMPLETED_BY_WORKER]
+    C --> F[CONFIRMED_BY_CUSTOMER]
+    C --> R[REQUIRES_REVISIT]
+    R --> A
+```
+
+---
+
+## 🏗️ Project Structure
+
+### Frontend (React + Vite)
+```
+client/
+├── src/
+│   ├── pages/
+│   │   ├── Packages.jsx
+│   │   ├── user/MySubscriptions.jsx
+│   │   ├── admin/ServiceManagement.jsx
+│   │   └── worker/WorkerDashboard.jsx
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   ├── ThemeContext.jsx
+│   │   └── CartContext.jsx
+│   └── utils/api.js
+└── package.json
+```
+
+### Backend (Node.js + Express)
+```
+server/
+├── server.js
+├── models/
+│   ├── User.js
+│   ├── Subscription.js
+│   └── Service.js
+├── routes/
+│   ├── auth.js
+│   ├── subscriptions.js
+│   └── services.js
+├── middleware/
+│   └── auth.js
+└── .env
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React 19 + Vite
+- Tailwind CSS
+- Framer Motion
+- React Router
+- Context API
+
+### Backend
+- Node.js + Express.js
+- MongoDB + Mongoose
+- JWT Authentication
+- bcryptjs
+- Helmet + Rate Limiting
+
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone Repository
+```bash
+git clone <repository-url>
+cd mahaplants-project
+```
+
+### 2️⃣ Backend Setup
+```bash
+cd server
+npm install
+```
+
+Create `.env` file:
+```env
+PORT=5001
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:5173
+```
+
+Start backend:
+```bash
+npm run dev
+```
+
+### 3️⃣ Frontend Setup
+```bash
+cd client
+npm install
+npm run dev
+```
+
+---
+
+## 👤 User Roles & Permissions
+
+| Role | Access |
+|------|--------|
+| **Customer** | Subscribe, view services, confirm work |
+| **Admin** | View all services, assign workers |
+| **Worker** | Complete assigned services |
+
+### Admin / Worker Setup
+1. Register normally
+2. Update `role` field in MongoDB (`user` → `admin` / `worker`)
+
+---
+
+## 🎮 How to Test the Flow
+
+1. **Register/Login** as Customer
+2. **Subscribe** to a package
+3. **View** My Subscriptions
+4. **Login as Admin** → assign worker
+5. **Login as Worker** → complete service
+6. **Confirm service** as Customer
+
+---
+
+## 🚀 Deployment
+
+### Frontend
+```bash
+npm run build
+# Deploy dist/ folder on Vercel / Netlify
+```
+
+### Backend
+```bash
+node server.js
+# Deploy on Railway / Render
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨💻 Author
+
+**Mahaplants Team**  
+Plant rental and maintenance experts in Pune
+
+---
+
+**🌿 "Bringing nature to your workspace, one plant at a time"**
