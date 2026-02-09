@@ -1,5 +1,8 @@
 # 🌱 Mahaplants – Complete Plant Care Service Platform
 
+![Mahaplants Home Page](images/hero-homepage.png)
+
+
 A full-stack **plant rental & maintenance management system** for offices, showrooms, and commercial spaces.  
 Businesses subscribe to plant packages and receive **automated maintenance services** with full lifecycle tracking.
 
@@ -12,6 +15,46 @@ Businesses subscribe to plant packages and receive **automated maintenance servi
 - **Frontend:** http://localhost:5173  
 - **Backend:** http://localhost:5001  
 - **Admin Panel:** http://localhost:5173/admin/services  
+
+---
+
+### 🔐 Secure Authentication
+
+![User Login](images/auth-login.png)
+
+Role-based authentication using JWT with protected routes for Customer, Admin, and Worker access.
+
+### 📦 Package-Based Subscription Flow
+
+![Subscription Packages](images/packages-pricing.png)
+
+Customers subscribe to tiered plant rental packages (Basic / Standard / Premium).  
+Each subscription automatically triggers maintenance service creation and lifecycle tracking in the backend.
+
+
+### 📋 Customer Subscription & Service Tracking
+
+![Customer Subscriptions](images/customer-subscriptions.png)
+
+Customers can view active subscriptions, billing cycles, and upcoming service schedules in real time.
+
+### 👨💼 Admin – Service Visit Management
+
+![Admin Service Management](images/admin-service-management.png)
+
+Admins manage all service visits generated from subscriptions, assign workers, and track real-time service status across the complete lifecycle.
+
+### 👷 Worker – Service Execution & Submission
+
+![Worker Service Completion](images/worker-service-completion.png)
+
+Assigned workers complete service checklists, upload proof images, and submit service updates, triggering the next step in the service lifecycle.
+
+### 👤 Customer – Service Confirmation & Feedback
+
+![Customer Service Confirmation](images/customer-service-confirmation.png)
+
+Customers review completed services, verify checklist and notes, and either confirm completion or request a revisit, ensuring full accountability in the service lifecycle.
 
 ---
 
@@ -94,7 +137,7 @@ flowchart LR
 
 ---
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ### Frontend (React + Vite)
 ```
